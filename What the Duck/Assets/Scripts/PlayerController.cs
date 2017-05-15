@@ -25,15 +25,15 @@ public class PlayerController : MonoBehaviour {
 			return;
 		}
 
-		transform.position = transform.position + new Vector3 (0.1f, 0, 0);
+		transform.position = transform.position + new Vector3 (0.2f, 0, 0);
 		if (Input.GetKeyUp (KeyCode.A)) {
 			transform.position = transform.position + new Vector3 (0, 0, 1);
 		}
 		if (Input.GetKeyUp (KeyCode.D)) {
 			transform.position = transform.position + new Vector3 (0, 0, -1);
 		}
-		if (Input.GetKey (KeyCode.W)) {
-			transform.position = transform.position + new Vector3 (0, 0.4f, 0);
+		if (Input.GetKeyDown (KeyCode.W)) {
+			transform.position = transform.position + new Vector3 (0, 1, 0);
 		}
 		if (Input.GetKeyUp (KeyCode.LeftArrow)) {
 			transform.position = transform.position + new Vector3 (0, 0, 1);
