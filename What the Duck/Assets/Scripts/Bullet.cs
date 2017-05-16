@@ -15,6 +15,9 @@ public class Bullet : MonoBehaviour {
 		if (other.tag == "Enemy") {
 			other.GetComponent<PlayerController>() .TakeDamage (damage);
 		}
+		if (other.tag == "Box") {
+			other.GetComponent<PlayerController> ().TakeDamage (damage);
+		}
 
 		Destroy (this.gameObject);
 	}

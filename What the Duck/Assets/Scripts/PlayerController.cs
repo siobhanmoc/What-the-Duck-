@@ -8,14 +8,21 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public GameObject gun;
+	public GameObject playerReference;
 
 	public Transform bulletSpawnPoint;
+
 
 	public int health = 100;
 	public void TakeDamage(int damageToTake) {
 		health = health - damageToTake;
 	}
-		
+
+	// Use this for initialization
+	void Start () {
+		playerReference.transform.position = new Vector3 (-29.5f, 1.5f, 0);
+	}
+
 
 	// Update is called once per frame
 	void Update () {
