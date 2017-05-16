@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b78b0e447c8d6c44ebdf07036b5abf9c
+timeCreated: 1494901052
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - bulletPrefab: {fileID: 1207592188946070, guid: a0045824d3ba9d44c8c70af016c0844d,
+      type: 2}
+  - gun: {fileID: 1992435042211896, guid: 266655cea382e774c80a291c09c546e6, type: 2}
+  - bulletSpawnPoint: {fileID: 4726445321393738, guid: 266655cea382e774c80a291c09c546e6,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

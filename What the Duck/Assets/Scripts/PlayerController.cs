@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.RightArrow)) {
 			transform.position = transform.position + new Vector3 (0, 0, -1);
 		}
-		if (Input.GetKey (KeyCode.UpArrow)) {
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			transform.position = transform.position + new Vector3 (0, 0.4f, 0);
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
