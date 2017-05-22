@@ -1,10 +1,20 @@
 fileFormatVersion: 2
 guid: 563e4dc7d25a354438737eef37818975
-timeCreated: 1494759062
+timeCreated: 1495406998
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletPrefab: {fileID: 1207592188946070, guid: a0045824d3ba9d44c8c70af016c0844d,
+      type: 2}
+  - gun: {instanceID: 0}
+  - bulletSpawnPoint: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  - playerObject: {instanceID: 0}
+  - leftPositionMarker: {instanceID: 0}
+  - middlePositionMarker: {instanceID: 0}
+  - rightPositionMarker: {instanceID: 0}
+  - targetPosition: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
