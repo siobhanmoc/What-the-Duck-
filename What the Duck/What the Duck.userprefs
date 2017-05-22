@@ -1,18 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bullet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelGeneration.cs">
     <Files>
-      <File FileName="Assets\Scripts\Health.cs" Line="10" Column="2" NotebookId="1" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="16" Column="26" NotebookId="1" />
-      <File FileName="Assets\Scripts\Bullet.cs" Line="31" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\Health.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\Bullet.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="7" Column="31" />
+      <File FileName="Assets\Scripts\LevelGeneration.cs" Line="35" Column="2" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="70" Column="3" />
     </Files>
-    <FloatingWindows>
-      <FloatingWindow WindowId="1" X="1912" Y="-8" Width="1920" Height="1058">
-        <Files>
-          <File FileName="Assets\Scripts\Enemy.cs" Line="7" Column="31" />
-        </Files>
-      </FloatingWindow>
-    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
