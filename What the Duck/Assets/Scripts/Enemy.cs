@@ -15,7 +15,10 @@ public class Enemy : MonoBehaviour {
 	public void TakeDamage(int damageToTake) {
 		health = health - damageToTake;
 	}
-		
+
+	private float shootingTimer;
+	public float timeBetweenShots = 0.1f;	
+	public Rigidbody rigidBody;
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,5 +29,11 @@ public class Enemy : MonoBehaviour {
 
 		GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
 		GO.GetComponent<Rigidbody> ().AddForce (gun.transform.forward * bulletspeed, ForceMode.Impulse);
+	}
+
+	// Use this for initialization
+	void Start () {
+		rigidBody = GetComponent<Rigidbody> ();
+		shootingTimer = Time.time;
 	}
 }

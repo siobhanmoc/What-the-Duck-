@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b78b0e447c8d6c44ebdf07036b5abf9c
-timeCreated: 1494901052
+timeCreated: 1495502669
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -9,6 +9,8 @@ MonoImporter:
       type: 2}
   - gun: {fileID: 1992435042211896, guid: 266655cea382e774c80a291c09c546e6, type: 2}
   - bulletSpawnPoint: {fileID: 4726445321393738, guid: 266655cea382e774c80a291c09c546e6,
+      type: 2}
+  - rigidBody: {fileID: 54489428653167722, guid: b961eab689b920a4d9cd34a5444b49f8,
       type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
