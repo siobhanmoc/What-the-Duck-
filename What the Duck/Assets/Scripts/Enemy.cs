@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	private float shootingTimer;
-	public float timeBetweenShots = 0.1f;	
+	public float timeBetweenShots = 2f;	
 	public Rigidbody rigidBody;
 	
 	// Update is called once per frame
@@ -27,8 +27,12 @@ public class Enemy : MonoBehaviour {
 			return;
 		}
 
-		GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
-		GO.GetComponent<Rigidbody> ().AddForce (gun.transform.forward * bulletspeed, ForceMode.Impulse);
+		if (Time.time - shootingTimer > timeBetweenShots) {
+			
+			GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
+			GO.GetComponent<Rigidbody> ().AddForce (-gun.transform.forward * bulletspeed, ForceMode.Impulse);
+			shootingTimer = Time.time;
+		}
 	}
 
 	// Use this for initialization

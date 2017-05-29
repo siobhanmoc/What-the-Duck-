@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour {
 
 	public List<GameObject> groundPieces = new List<GameObject> ();
 
-	public float depthOfGroundPiece = 2;
+	public float depthOfGroundPiece = 6;
 
 	public float playerPositionCounter = 0;
 	public GameObject player;

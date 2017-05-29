@@ -84,17 +84,26 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		playerObject.transform.position = Vector3.MoveTowards (playerObject.transform.position, targetPosition.transform.position, sidestepSpeed * Time.deltaTime);
-	}
-
-	void FixedUpdate () {
 
 		if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
 			grounded = true;
 		}
-
+	
 		if (Input.GetKeyDown (KeyCode.W) && grounded == true) {
 			GetComponent<Rigidbody> ().velocity = new Vector3 (runningSpeed, Mathf.Sqrt (2 * jumpHeight * gravity), 0);
 			grounded = false;
 		}
 	}
+
+	//void FixedUpdate () {
+	//
+	//	if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
+	//		grounded = true;
+	//	}
+	//
+	//	if (Input.GetKeyDown (KeyCode.W) && grounded == true) {
+	//		GetComponent<Rigidbody> ().velocity = new Vector3 (runningSpeed, Mathf.Sqrt (2 * jumpHeight * gravity), 0);
+	//		grounded = false;
+	//	}
+	//}
 }
