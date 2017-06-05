@@ -9,6 +9,7 @@ public class Health : MonoBehaviour {
 	public int startingLives = 5;
 
 	public Text health;
+	public Text lives;
 
 	private static int currentHealth;
 	private int currentLives;
@@ -82,6 +83,7 @@ public class Health : MonoBehaviour {
 	}
 
 	private void UpdateText () {
-		health.text = currentHealth.ToString ();
+		health.text = "Health: " + currentHealth.ToString ();
+		lives.text = "Lives: " + currentLives.ToString ();
 	}
 }

@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour {
 
 	public Transform bulletSpawnPoint;
 
-
 	private float shootingTimer;
 	public float timeBetweenShots = 2f;	
 	public Rigidbody rigidBody;

@@ -7,11 +7,10 @@ public class GameManager : MonoBehaviour {
 
 	public int ammoCount = 50;
 	public int scoreCount = 0;
-	public int healthCount;
+
 
 	public Text ammoCounter;
 	public Text scoreCounter;
-	public Text healthCounter;
 
 	void Start () {
 		UpdateText ();
@@ -29,7 +28,15 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void UpdateText () {
-		ammoCounter.text = ammoCount.ToString ();
-		healthCounter.text = healthCount.ToString ();
+		ammoCounter.text = "Ammo: " + ammoCount.ToString ();
+	}
+
+	public void AddScore (int newScoreValue) {
+		scoreCount += newScoreValue;
+		UpdateScore ();
+	}
+
+	void UpdateScore () {
+		scoreCounter.text = "Score: " + scoreCount;
 	}
 }
