@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour {
 
 		playerObject.transform.position = Vector3.MoveTowards (playerObject.transform.position, targetPosition.transform.position, sidestepSpeed * Time.deltaTime);
 
+		//Make the player jump without double jumping
 		if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
 			grounded = true;
 		}

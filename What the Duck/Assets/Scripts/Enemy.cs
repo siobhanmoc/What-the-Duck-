@@ -11,10 +11,6 @@ public class Enemy : MonoBehaviour {
 
 	public Transform bulletSpawnPoint;
 
-	public int health = 100;
-	public void TakeDamage(int damageToTake) {
-		health = health - damageToTake;
-	}
 
 	private float shootingTimer;
 	public float timeBetweenShots = 2f;	
@@ -22,10 +18,6 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (health <= 0) {
-			//this exits the function and does not run anything after it.
-			return;
-		}
 
 		if (Time.time - shootingTimer > timeBetweenShots) {
 			

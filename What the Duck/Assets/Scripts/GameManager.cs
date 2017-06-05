@@ -1,18 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	public Texture scoreCounter;
+	public int ammoCount = 50;
+	public int scoreCount = 0;
+	public int healthCount;
 
-	// Use this for initialization
+	public Text ammoCounter;
+	public Text scoreCounter;
+	public Text healthCounter;
+
 	void Start () {
-		
-	}
+		UpdateText ();
 	
-	// Update is called once per frame
+	}
+
 	void Update () {
-		
+		if (Input.GetKeyDown (KeyCode.Space)) {
+
+			if (ammoCount > 0) {
+				ammoCount--;
+				UpdateText ();
+			}
+		}
+	}
+
+	private void UpdateText () {
+		ammoCounter.text = ammoCount.ToString ();
+		healthCounter.text = healthCount.ToString ();
 	}
 }
