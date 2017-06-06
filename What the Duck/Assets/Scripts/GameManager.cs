@@ -8,28 +8,49 @@ public class GameManager : MonoBehaviour {
 	public int ammoCount = 50;
 	public int scoreCount = 0;
 
+	public bool canShoot;
 
 	public Text ammoCounter;
 	public Text scoreCounter;
 
 	void Start () {
-		UpdateText ();
-	
+		
+		//UpdateText ();
+			
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		//
+		//canShoot == true;
+		//
+		//if (GetComponent<PlayerController> ().Bullet ()) {
+		//	ammoCount > 0;
+		//	ammoCount--;
+		//}
+		//
+		//canShoot == false;
 
-			if (ammoCount > 0) {
-				ammoCount--;
-				UpdateText ();
-			}
-		}
+		//if (ammoCount <= 0) {
+		//	ammoCount = 0;
+		//}
+
+		//UpdateText ();
+
+		//if (ammoCount <= 0) {
+		//	ammoCount = 0;
+		//	canShoot = false;
+		//}
+		//
+		//	if (ammoCount > 0) {
+		//		ammoCount--;
+		//		canShoot = true;
+		//		UpdateText ();
+		//}
 	}
 
-	private void UpdateText () {
-		ammoCounter.text = "Ammo: " + ammoCount.ToString ();
-	}
+	//private void UpdateText () {
+	//	ammoCounter.text = "Ammo: " + ammoCount.ToString ();
+	//}
 
 	public void AddScore (int newScoreValue) {
 		scoreCount += newScoreValue;

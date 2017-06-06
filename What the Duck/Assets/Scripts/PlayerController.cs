@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+
+	public int ammoCount = 50;
+	public Text ammoCounter;
+	public bool canShoot;
 
 	public float bulletSpeed = 100;
 
@@ -40,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		targetPosition = middlePositionMarker;
+		UpdateText ();
 	}
 
 
@@ -78,12 +84,8 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
-			GO.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletSpeed, ForceMode.Impulse);
-		}
+		BulletShoot ();
 
-		playerObject.transform.position = Vector3.MoveTowards (playerObject.transform.position, targetPosition.transform.position, sidestepSpeed * Time.deltaTime);
 
 		//Make the player jump without double jumping
 		if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
@@ -96,15 +98,30 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	//void FixedUpdate () {
-	//
-	//	if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
-	//		grounded = true;
-	//	}
-	//
-	//	if (Input.GetKeyDown (KeyCode.W) && grounded == true) {
-	//		GetComponent<Rigidbody> ().velocity = new Vector3 (runningSpeed, Mathf.Sqrt (2 * jumpHeight * gravity), 0);
-	//		grounded = false;
-	//	}
-	//}
+
+	public void BulletShoot () {
+		
+		if (Input.GetKeyDown (KeyCode.Space) && canShoot == true) {
+			ammoCount--;
+			GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
+			GO.GetComponent<Rigidbody> ().AddForce (transform.forward * bulletSpeed, ForceMode.Impulse);
+		}
+
+		playerObject.transform.position = Vector3.MoveTowards (playerObject.transform.position, targetPosition.transform.position, sidestepSpeed * Time.deltaTime);
+
+		if (ammoCount >= 1) {
+			canShoot = true;
+		}
+		if (ammoCount <= 0) {
+			canShoot = false;
+		}
+
+		UpdateText ();
+	}
+
+	private void UpdateText () {
+
+		ammoCounter.text = "Ammo: " + ammoCount.ToString ();
+
+	}
 }

@@ -11,6 +11,8 @@ public class Health : MonoBehaviour {
 	public Text health;
 	public Text lives;
 
+	public bool playerAlive;
+
 	private static int currentHealth;
 	private int currentLives;
 
@@ -23,25 +25,7 @@ public class Health : MonoBehaviour {
 		currentLives = startingLives;
 	}
 	void Update () {
-
 		CurrentHealth ();
-
-		//if (currentLives > startingLives) {
-		//	currentLives = startingLives;
-		//}
-		//if (currentHealth > startingHealth) {
-		//	currentHealth = startingHealth;
-		//}
-		//if (currentHealth <= 0) {
-		//
-		//	if (currentLives >= 1) {
-		//		
-		//		TakeLife ();
-		//		ResetPlayer ();
-		//	} else {
-		//		Debug.Log ("You Dead");
-		//	}
-		//}
 	}
 
 	public void TakeLife () {
@@ -59,6 +43,7 @@ public class Health : MonoBehaviour {
 	public void ResetPlayer () {
 
 		currentHealth = startingHealth;
+
 	}
 
 	public void CurrentHealth (){
@@ -71,14 +56,27 @@ public class Health : MonoBehaviour {
 		}
 		if (currentHealth <= 0) {
 
+			if (currentHealth >= 0) {
+				playerAlive = true;
+			}
 			if (currentLives >= 1) {
+				playerAlive = true;
+			}
+
+			if (currentLives <= 0) {
+				playerAlive = false;
+			}
+
+			//if (playerAlive == false) {
+			//	GetComponent <PlayerController> ().enabled = false;
+			//}
 
 				TakeLife ();
 				ResetPlayer ();
 			} else {
 				Debug.Log ("You Dead");
 			}
-		}
+
 		UpdateText ();
 	}
 
