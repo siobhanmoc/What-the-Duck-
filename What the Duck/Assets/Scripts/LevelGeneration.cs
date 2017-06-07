@@ -13,7 +13,7 @@ public class LevelGeneration : MonoBehaviour {
 
 	int groundPieceCounter = 0;
 
-	// Use this for initialization
+	// To randomally generate ground pieces
 	void Start () {
 
 		for (int i = 0; i < 40; i++) {

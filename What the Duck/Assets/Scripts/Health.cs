@@ -48,6 +48,7 @@ public class Health : MonoBehaviour {
 
 	public void CurrentHealth (){
 		
+		//To reduce health and lives from starting health
 		if (currentLives > startingLives) {
 			currentLives = startingLives;
 		}
@@ -67,9 +68,9 @@ public class Health : MonoBehaviour {
 				playerAlive = false;
 			}
 
-			//if (playerAlive == false) {
-			//	GetComponent <PlayerController> ().enabled = false;
-			//}
+			if (playerAlive == false) {
+				GetComponent <PlayerController> ().enabled = false;
+			}
 
 				TakeLife ();
 				ResetPlayer ();

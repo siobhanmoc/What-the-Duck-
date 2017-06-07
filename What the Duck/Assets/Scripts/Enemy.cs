@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//Enemy is able to shoot, with a gap between shots
 		if (Time.time - shootingTimer > timeBetweenShots) {
 			
 			GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;

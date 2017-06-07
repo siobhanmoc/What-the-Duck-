@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour {
 	public int damageToGive = 20;
 
 	void OnTriggerEnter (Collider other) {
+		
+		//To shoot the enemies
 		if (other.tag == "Enemy") {
 			other.GetComponent <EnemyHealth> ().HurtEnemy (damageToGive);
 			Destroy (gameObject);
