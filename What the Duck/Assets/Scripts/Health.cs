@@ -68,9 +68,9 @@ public class Health : MonoBehaviour {
 				playerAlive = false;
 			}
 
-			if (playerAlive == false) {
-				GetComponent <PlayerController> ().enabled = false;
-			}
+			//if (playerAlive == false) {
+			//	GetComponent <PlayerController> ().enabled = false;
+			//}
 
 				TakeLife ();
 				ResetPlayer ();
