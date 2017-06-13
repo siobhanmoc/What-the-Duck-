@@ -5,24 +5,26 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
+	[HideInInspector]
+	public int damage;
 	public int startingHealth = 100;
 	public int startingLives = 5;
 
+	private int currentLives;
+	private static int currentHealth;
+
 	public Text health;
 	public Text lives;
+	public Text gameOver;
 
-	public bool playerAlive;
-
-	private static int currentHealth;
-	private int currentLives;
-
-	[HideInInspector]
-	public int damage;
+	public GameObject player;
 
 	void Start () {
 
 		currentHealth = startingHealth;
 		currentLives = startingLives;
+
+		gameOver.text = "";
 	}
 	void Update () {
 		CurrentHealth ();
@@ -57,32 +59,35 @@ public class Health : MonoBehaviour {
 		}
 		if (currentHealth <= 0) {
 
-			if (currentHealth >= 0) {
-				playerAlive = true;
-			}
 			if (currentLives >= 1) {
-				playerAlive = true;
+				TakeLife ();
 			}
 
 			if (currentLives <= 0) {
-				playerAlive = false;
+				currentLives = 1;
+				gameOver.text = "Game Over";
+
+				Destroy (this.gameObject);
 			}
 
-			//if (playerAlive == false) {
-			//	GetComponent <PlayerController> ().enabled = false;
-			//}
-
-				TakeLife ();
-				ResetPlayer ();
-			} else {
-				Debug.Log ("You Dead");
-			}
+			TakeLife ();
+			ResetPlayer ();
+		}
 
 		UpdateText ();
 	}
-
+		
 	private void UpdateText () {
 		health.text = "Health: " + currentHealth.ToString ();
 		lives.text = "Lives: " + currentLives.ToString ();
+	}
+
+	//Give lives and turns off collectable item
+	void OnTriggerEnter (Collider other) {
+
+		if (other.tag == "PickUpLives") {
+			other.gameObject.SetActive (false);
+			currentLives = currentLives + 1;
+		}
 	}
 }

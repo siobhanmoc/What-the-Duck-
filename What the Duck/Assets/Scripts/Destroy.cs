@@ -9,8 +9,8 @@ public class Destroy : MonoBehaviour {
 	//When something enters the Trigger
 	void OnTriggerEnter(Collider other) {
 
-		//To destroy ground pieces after player goes pass
-		if (other.tag == "Player") {
+		//To destroy ground pieces after player goes past
+		if (other.tag == "Ground") {
 
 			Destroy (other.gameObject, destroyTime);
 		}

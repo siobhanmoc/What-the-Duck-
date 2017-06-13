@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public float bulletspeed = 20;
 
 	public GameObject bulletPrefab;
 	public GameObject gun;
 
 	public Transform bulletSpawnPoint;
 
+	public float bulletspeed = 20;
 	private float shootingTimer;
 	public float timeBetweenShots = 2f;	
+
 	public Rigidbody rigidBody;
 	
-	// Update is called once per frame
+
 	void Update () {
 
 		//Enemy is able to shoot, with a gap between shots
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	// Use this for initialization
+
 	void Start () {
 		rigidBody = GetComponent<Rigidbody> ();
 		shootingTimer = Time.time;

@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
 
 	public Text scoreCounter;
 
-
 	public void AddScore (int newScoreValue) {
 		scoreCount += newScoreValue;
 		UpdateScore ();
@@ -19,5 +18,12 @@ public class GameManager : MonoBehaviour {
 
 	void UpdateScore () {
 		scoreCounter.text = "Score: " + scoreCount;
+	}
+
+	//To restart the level
+	void Update (){
+			if (Input.GetKeyDown (KeyCode.R)){
+				Application.LoadLevel (Application.loadedLevelName);
+		}
 	}
 }

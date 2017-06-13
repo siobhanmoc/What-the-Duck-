@@ -5,39 +5,34 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-	public int ammoCount = 50;
-	public Text ammoCounter;
-	public bool canShoot;
-
-	public float bulletSpeed = 100;
-
-	public GameObject bulletPrefab;
-	public GameObject gun;
-
-	public Transform bulletSpawnPoint;
-
-	public GameObject mainCamera;
-	public float runningSpeed = 6;
-
-
-	public GameObject playerObject;
-
-	public GameObject leftPositionMarker;
-	public GameObject middlePositionMarker;
-	public GameObject rightPositionMarker;
-
+	public int health = 100;
 	public int position = 2;
+	public int ammoCount = 50;
 
-	public float sidestepSpeed = 10;
-	public GameObject targetPosition;
+	public Text ammoCounter;
+
+	private bool grounded = true;
+	public bool canShoot;
 
 	public float jumpHeight = 2f;
 	public float gravity = 20f;
+	public float bulletSpeed = 100;
+	public float sidestepSpeed = 10;
+	public float runningSpeed = 6;
 
-	private bool grounded = true;
+	public GameObject bulletPrefab;
+	public GameObject gun;
+	public GameObject mainCamera;
+	public GameObject playerObject;
+	public GameObject leftPositionMarker;
+	public GameObject middlePositionMarker;
+	public GameObject rightPositionMarker;
+	public GameObject targetPosition;
+
+	public Transform bulletSpawnPoint;
 
 
-	public int health = 100;
+
 	public void TakeDamage(int damageToTake) {
 		health = health - damageToTake;
 	}
@@ -57,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 			return;
 		}
 
+		//camera position, behind player
 		transform.position += Vector3.forward * runningSpeed * Time.deltaTime;
 		float cameraXpos = 0;
 		float cameraYpos = 1.5f;
@@ -64,6 +60,7 @@ public class PlayerController : MonoBehaviour {
 		mainCamera.transform.position = new Vector3 (cameraXpos,cameraYpos,cameraZpos);
 		mainCamera.transform.position = new Vector3 (cameraXpos, cameraYpos, cameraZpos);
 
+		//Moving the player between the three lanes
 		if (Input.GetKeyDown (KeyCode.A) && position > 1) {
 			if (position == 2) {
 				position = 1;
@@ -86,7 +83,6 @@ public class PlayerController : MonoBehaviour {
 
 		BulletShoot ();
 
-
 		//Make the player jump without double jumping
 		if (!grounded && (GetComponent<Rigidbody> ().velocity.y == 0)) {
 			grounded = true;
@@ -98,7 +94,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-
+	//Shooting. Player can't shoot once ammo reaches 0
 	public void BulletShoot () {
 		
 		if (Input.GetKeyDown (KeyCode.Space) && canShoot == true) {
@@ -123,5 +119,19 @@ public class PlayerController : MonoBehaviour {
 
 		ammoCounter.text = "Ammo: " + ammoCount.ToString ();
 
+	}
+
+
+	void OnTriggerEnter (Collider other) {
+
+		//To turn off bullets collectables
+		if (other.tag == "PickUpBullet") {
+			other.gameObject.SetActive (false);
+		}
+		//Give player ammo
+		if (other.tag == "PickUp") {
+			other.gameObject.SetActive (false);
+			ammoCount = ammoCount + 5;
+		}
 	}
 }

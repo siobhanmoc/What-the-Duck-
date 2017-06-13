@@ -11,8 +11,6 @@ public class EnemyHealth : MonoBehaviour {
 
 	private GameManager gameManager;
 
-	private int damageToGive;
-
 	void Start () {
 
 		currentHealth = startingHealth;
